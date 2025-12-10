@@ -16,7 +16,7 @@ yoy = yearly.withColumn("prev_year_pm25", lag("avg_pm25").over(window)) \
     .withColumn("yoy_pct", ((col("avg_pm25") - col("prev_year_pm25")) / col("prev_year_pm25") * 100))
 
 yoy.write.mode("overwrite") \
-    .parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/batch/yoy_comparison")
+    .parquet("hdfs:///user/hadoop/outputs/yoy_comparison")
 
 yoy.orderBy("year_partition").show(20, False)
 spark.stop()

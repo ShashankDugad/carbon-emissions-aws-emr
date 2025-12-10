@@ -19,7 +19,7 @@ seasonal = epa.filter(col("Parameter Name") == "PM2.5 - Local Conditions") \
 
 seasonal.write.mode("overwrite") \
     .partitionBy("year_partition") \
-    .parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/batch/seasonal_trends")
+    .parquet("hdfs:///user/hadoop/outputs/seasonal_trends")
 
 seasonal.orderBy("year_partition", "season").show(40, False)
 spark.stop()

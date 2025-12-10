@@ -17,7 +17,7 @@ top_counties = epa.filter(col("Parameter Name") == "PM2.5 - Local Conditions") \
     .limit(10)
 
 top_counties.write.mode("overwrite") \
-    .parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/batch/top_counties")
+    .parquet("hdfs:///user/hadoop/outputs/top_counties")
 
 top_counties.show(10, False)
 spark.stop()

@@ -7,7 +7,7 @@ spark = SparkSession.builder \
     .config("spark.sql.adaptive.enabled", "true") \
     .getOrCreate()
 
-epa = spark.read.parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/epa_parquet")
+epa = spark.read.parquet("hdfs:///user/hadoop/data/epa_parquet")
 
 # Filter PM2.5 data only
 pm25 = epa.filter(col("Parameter Name") == "PM2.5 - Local Conditions")
@@ -27,7 +27,7 @@ pm25 = pm25.withColumn("rolling_avg_7d", spark_avg("Sample Measurement").over(wi
 
 # Save features
 pm25.write.mode("overwrite") \
-    .parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/features_pm25")
+    .parquet("hdfs:///user/hadoop/data/features_pm25")
 
 print(f"Features created: {pm25.count():,} rows")
 print("Columns:", pm25.columns)
