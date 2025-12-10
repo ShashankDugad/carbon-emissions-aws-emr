@@ -3,7 +3,7 @@ from pyspark.sql.functions import col, avg, count
 
 spark = SparkSession.builder.appName("Top_Counties").getOrCreate()
 
-epa = spark.read.parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/epa_parquet")
+epa = spark.read.parquet("hdfs:///user/hadoop/data/epa_parquet")
 
 # Top 10 counties by avg PM2.5
 top_counties = epa.filter(col("Parameter Name") == "PM2.5 - Local Conditions") \

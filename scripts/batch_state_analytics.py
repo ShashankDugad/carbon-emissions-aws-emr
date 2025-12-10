@@ -15,7 +15,7 @@ start = time.time()
 
 # === Load Data ===
 # These HDFS paths are placeholders for later DataProc runs
-epa_path = "hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/epa_parquet/"
+epa_path = "hdfs:///user/hadoop/data/epa_parquet/"
 openaq_path = "hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/openaq_parquet/"
 
 print(f"Starting batch analytics at {datetime.now()}")

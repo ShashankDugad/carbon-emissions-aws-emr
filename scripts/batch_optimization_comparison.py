@@ -4,7 +4,7 @@ import time
 
 spark = SparkSession.builder.appName("Optimization_Test").getOrCreate()
 
-epa = spark.read.parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/epa_parquet")
+epa = spark.read.parquet("hdfs:///user/hadoop/data/epa_parquet")
 
 # Test 1: No optimization
 start = time.time()

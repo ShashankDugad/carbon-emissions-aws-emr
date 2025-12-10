@@ -4,7 +4,7 @@ from pyspark.sql.window import Window
 
 spark = SparkSession.builder.appName("YoY_Comparison").getOrCreate()
 
-epa = spark.read.parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/epa_parquet")
+epa = spark.read.parquet("hdfs:///user/hadoop/data/epa_parquet")
 
 yearly = epa.filter(col("Parameter Name") == "PM2.5 - Local Conditions") \
     .groupBy("year_partition") \

@@ -3,7 +3,7 @@ from pyspark.sql.functions import col, avg, month, when
 
 spark = SparkSession.builder.appName("Seasonal_Trends").getOrCreate()
 
-epa = spark.read.parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/epa_parquet")
+epa = spark.read.parquet("hdfs:///user/hadoop/data/epa_parquet")
 
 # Add month column first
 seasonal = epa.filter(col("Parameter Name") == "PM2.5 - Local Conditions") \
