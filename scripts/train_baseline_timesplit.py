@@ -8,7 +8,7 @@ from pyspark.sql.functions import col
 spark = SparkSession.builder.appName("ML_TimeSplit").getOrCreate()
 
 start = time.time()
-df = spark.read.parquet("hdfs:///user/sd5957_nyu_edu/carbon_emissions/processed/features_pm25")
+df = spark.read.parquet("hdfs:///user/hadoop/data/features_pm25")
 df = df.select("Sample Measurement", "hour", "day_of_week", "month", 
                "Latitude", "Longitude", "rolling_avg_7d", "violation", "year_partition").dropna()
 
